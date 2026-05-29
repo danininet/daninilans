@@ -1,0 +1,2 @@
+export const metadata={title:'Kontakt'};
+export default function Page(){return <div className='container section'><div className='eyebrow'>Kontakt</div><h1>Kontakt i saradnja</h1><div className='grid two'><article className='card'><h3>Kontakt</h3><p>Kontakt forma i Brevo integracija biće povezane kroz produkcioni sistem.</p></article><article className='card'><h3>Saradnja</h3><p>Predlozi sadržaja, stara znanja, recepti i iskustva mogu postati deo DaniniLans biblioteke nakon pregleda.</p></article></div></div>}
