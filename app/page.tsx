@@ -22,7 +22,7 @@ export default function HomePage() {
             </div>
           </div>
           <aside className="card visualCard">
-            <div className="waterCircle">DL</div>
+            <img className="heroImage" src="/images/daninilans-hero-water-rhythm-ai.webp" alt="DaniniLans koncept vode, dnevnog ritma, kuhinje, prostora i odgovorne AI organizacije" />
             <h3>Voda je polazna tačka, ne zaključak.</h3>
             <p>Čaša na stolu, beležnica pored nje, kuhinja u kojoj se dan priprema i AI koji pomaže da pitanje bude jasnije. To je DaniniLans: svakodnevica posmatrana kao sistem.</p>
           </aside>
