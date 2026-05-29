@@ -1,82 +1,71 @@
 import Link from "next/link";
 
-const pillars = [
-  ["Voda i ritam", "Dnevni odnos prema vodi bez preterivanja, bez straha i bez medicinskih obecanja."],
-  ["Rutine", "Jutro, radni blok, pauza, obrok, vece i vikend kao jednostavni ritmovi koji se mogu pratiti."],
-  ["Recepti", "Prakticni sezonski predlozi za sto, termos, flasu, pauzu i porodicni ritam."],
-  ["Stara znanja", "Narodna iskustva, domacinski red i price koje se mogu citati kriticki i odgovorno."],
+const entries = [
+  ["Voda i ritam", "Praktičan vodič kroz dan: jutro, posao, pauze, obrok i večernje smirivanje."],
+  ["Rutine", "Kratki rituali za početak dana, radni blok, pauzu od ekrana i završetak večeri."],
+  ["Recepti", "Jednostavni predlozi za vodu, čajeve, lagane obroke i sezonske navike."],
+  ["Stara znanja", "Porodična iskustva, narodne beleške i običaji prikazani odgovorno, bez medicinskih tvrdnji."],
 ];
 
 export default function HomePage() {
   return (
     <div>
       <section className="hero container">
-        <div className="eyebrow">DaniniLans · sr / de / en</div>
         <div className="grid two">
           <div>
-            <h1>Voda, ritam i navike koje ne glume medicinu.</h1>
+            <div className="eyebrow">DaniniLans · voda · ritam · navike</div>
+            <h1>Mirniji dnevni ritam počinje od jednostavnih stvari.</h1>
             <p className="lead">
-              DaniniLans je miran digitalni prostor za vodu, dnevni ritam, rutine, recepte, stara znanja i knjigu utisaka. Nije klinika, nije guru program i nije obecanje brzog rezultata.
+              DaniniLans je prostor za praktične rutine, vodu u svakodnevnom ritmu, recepte, stare beleške i utiske ljudi koji žele više reda u danu bez velikih obećanja i bez medicinskih tvrdnji.
             </p>
-            <div className="badges">
-              <span className="badge">Nemedicinski pristup</span>
-              <span className="badge">Dnevne rutine</span>
-              <span className="badge">Recepti i navike</span>
-              <span className="badge">Stara znanja</span>
-            </div>
             <div className="ctaRow">
-              <Link className="btn primary" href="/rutine">Pogledaj rutine</Link>
-              <Link className="btn secondary" href="/voda-i-ritam">Voda i ritam</Link>
+              <Link className="btn primary" href="/voda-i-ritam">Počni od vode i ritma</Link>
+              <Link className="btn secondary" href="/rutine">Pogledaj rutine</Link>
             </div>
           </div>
-          <div className="card visualCard" aria-label="DaniniLans vizuelni motiv">
+          <aside className="card visualCard">
             <div className="waterCircle">DL</div>
-            <h3>Ritam dana se ne kupuje. On se slaze.</h3>
+            <h3>Dan se ne menja velikom pričom, nego redom koji može da se ponovi.</h3>
             <p>
-              Casa vode na stolu, kratka pauza, jednostavan obrok, zapis utiska i granica prema ekranu. To je polaziste DaniniLans-a.
+              Čaša vode, kratak predah, jednostavan obrok, beleška u knjizi utisaka i večernji završetak dana — to je osnova DaniniLans pristupa.
             </p>
-            <ul className="list">
-              <li>bez dijagnoza i terapija</li>
-              <li>bez ekstremnih pravila</li>
-              <li>bez kopiranja tudjeg zivota</li>
-            </ul>
-          </div>
+          </aside>
         </div>
       </section>
 
       <section className="section container">
         <div className="sectionHead">
-          <div className="eyebrow">Krovna struktura</div>
-          <h2>Jedan sajt, cetiri mirna ulaza.</h2>
-          <p className="lead">Sadrzaj je podeljen tako da korisnik odmah zna gde ide: voda, rutina, recept ili iskustvo.</p>
+          <div className="eyebrow">Šta se ovde nalazi</div>
+          <h2>Četiri ulaza u isti cilj: više reda u svakodnevici.</h2>
         </div>
         <div className="grid four">
-          {pillars.map(([title, text]) => (
-            <article className="card" key={title}><h3>{title}</h3><p>{text}</p></article>
+          {entries.map(([title, text]) => (
+            <article className="card" key={title}>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
           ))}
         </div>
       </section>
 
       <section className="section container splitBand">
         <div>
-          <div className="eyebrow">Jezici</div>
-          <h2>Prvo srpski, zatim nemacki i engleski sloj.</h2>
+          <div className="eyebrow">SR / DE / EN</div>
+          <h2>Srpska osnova, zatim nemački i engleski sloj.</h2>
           <p>
-            Struktura sajta je spremna za SR / DE / EN. Prvo se stabilizuje srpska verzija, zatim se prevode kljucne stranice bez menjanja identiteta i bez automatskog medicinskog tona.
+            Prvo se gradi stabilna srpska verzija sa jasnim identitetom. Nakon toga slede nemačka i engleska verzija ključnih stranica, uz isti odgovoran ton i iste granice.
           </p>
         </div>
-        <div className="languageBox">
-          <span>SR</span><span>DE</span><span>EN</span>
-        </div>
+        <div className="languageBox"><span>SR</span><span>DE</span><span>EN</span></div>
       </section>
 
       <section className="section container">
         <div className="card disclaimer">
-          <h3>Jasna granica</h3>
+          <h3>Važna granica</h3>
           <p>
-            DaniniLans je edukativan i informativan. Sadrzaj nije medicinski savet, dijagnoza, terapija ili zamena za strucno lice. Kod zdravstvenih tegoba, terapije, trudnoce, hronicnih bolesti ili sumnje, odluka ide uz kvalifikovanog strucnjaka.
+            DaniniLans je edukativni projekat. Sadržaj nije medicinski savet, dijagnoza, terapija ili zamena za stručno lice. Rutine i recepti su opšti primeri za organizaciju dana.
           </p>
-          <Link className="btn secondary" href="/disclaimer">Procitaj kompletan disclaimer</Link>
+          <Link className="btn secondary" href="/disclaimer">Pročitaj disclaimer</Link>
         </div>
       </section>
     </div>
