@@ -1,16 +1,16 @@
 import Link from "next/link";
 
-const rhythm = [
-  ["01", "Jutro", "Čaša vode, kratka beleška i kuhinja koja ne traži dodatnu odluku čim se dan otvori."],
-  ["02", "Rad", "Voda na vidljivom mestu, pauza koja nije izgovor i AI beleška koja sređuje sledeći korak."],
-  ["03", "Dom", "Svetlo, prostor, sto, filter, aparat i mirniji prelaz iz obaveza u veče."],
+const dayFlow = [
+  ["Jutro", "Voda na vidljivom mestu, kratka beleška i početak bez pritiska da dan odmah bude savršen."],
+  ["Radni ritam", "Pauza, čaša vode i jedno pitanje koje sređuje sledeći korak umesto da se gomila deset zadataka."],
+  ["Veče", "Kuhinja, priprema za sutra i miran prelaz iz obaveza u odmor, bez velikih obećanja i bez dramatičnih pravila."],
 ];
 
-const library = [
-  ["Voda, tehnologija i AI", "UMH, Welan, filteri, pametni uređaji i AI kao tema svakodnevne organizacije, bez medicinskih obećanja.", "/vodici/voda-tehnologija-i-ai"],
-  ["Stanovanje i kvalitet dana", "Kuhinja, svetlo, mir, terasa, radni sto i okruženje kao deo realnog ritma života.", "/vodici/stanovanje-i-kvalitet-svakodnevice"],
-  ["Stara znanja", "Porodične beleške, navike i običaji kao kulturni trag reda, ne kao dokaz lečenja.", "/stara-znanja"],
-  ["Recepti", "Voda, čajevi, sezonski bokali i kuhinjski reset kao praktične ideje, ne kao terapija.", "/recepti"],
+const guideLinks = [
+  ["Voda i ritam", "Osnovni princip DaniniLans-a: voda kao orijentir dana, ne kao medicinsko obećanje.", "/voda-i-ritam"],
+  ["Rutine", "Neutralne dnevne rutine za jutro, rad, pauzu i veče — bez ekstremnih režima.", "/rutine"],
+  ["AI u svakodnevici", "Kako metoda Pitaj AI — AI pita tebe pomaže da pitanje bude jasnije, a odluka odgovornija.", "/vodici/ai-u-svakodnevici"],
+  ["Disclaimer", "Granice sadržaja: edukativno, nemedicinski i bez obećanja zdravstvenih rezultata.", "/disclaimer"],
 ];
 
 export default function HomePage() {
@@ -18,20 +18,20 @@ export default function HomePage() {
     <div>
       <section className="hero container premiumHero">
         <div className="heroCopy">
-          <div className="eyebrow">DaniniLans · voda · ritam · prostor · AI</div>
-          <h1>Voda je početak. Ritam je način. Odluka ostaje tvoja.</h1>
-          <p className="lead">DaniniLans je edukativni prostor za svakodnevicu u kojoj se voda, kuhinja, stanovanje, tehnologija i AI posmatraju zajedno. Bez medicinskih obećanja. Bez pritiska. Bez šablona. Samo jasnije pitanje, proveren okvir i mali korak koji ima smisla.</p>
+          <div className="eyebrow">DaniniLans · rutina · balans · voda · navike</div>
+          <h1>Rutina ne mora da bude stroga da bi imala smisla.</h1>
+          <p className="lead">DaniniLans je edukativni prostor za zdraviji stil života kroz vodu, dnevni ritam, neutralne navike i odgovornu upotrebu AI. Ne obećava lečenje, rezultate ili savršen život. Pomaže da se dan pogleda mirnije: šta je stvarno potrebno, gde su granice i koji mali korak danas ima smisla.</p>
           <div className="ctaRow">
-            <Link className="btn primary" href="/vodici">Otvori biblioteku vodiča</Link>
-            <Link className="btn secondary" href="/metoda">Kako metoda radi</Link>
+            <Link className="btn primary" href="/voda-i-ritam">Počni od vode i ritma</Link>
+            <Link className="btn secondary" href="/rutine">Pogledaj rutine</Link>
           </div>
         </div>
         <aside className="heroPanel">
-          <img className="heroImage" src="/images/daninilans-hero-water-rhythm-ai.webp" alt="DaniniLans voda, kuhinja, beležnica, prostor i odgovorna AI organizacija" />
+          <img className="heroImage" src="/images/daninilans-hero-water-rhythm-ai.webp" alt="DaniniLans rutina, voda, kuhinja, beležnica i odgovorna AI organizacija" />
           <div className="heroPanelText">
             <span className="smallCaps">DaniniLans pristup</span>
-            <h3>Prvo vidi dan. Onda biraj alat.</h3>
-            <p>Čaša vode, beležnica, kuhinja i AI u pozadini nisu dekoracija. To su tačke iz kojih se gradi mirniji odnos prema danu.</p>
+            <h3>Prvo ritam. Zatim alat.</h3>
+            <p>Voda, beležnica, kuhinja i AI nisu predstava. Oni su pomoćni elementi da dan postane čitljiviji, a odluka odgovornija.</p>
           </div>
         </aside>
       </section>
@@ -39,32 +39,32 @@ export default function HomePage() {
       <section className="section container featureBand">
         <div>
           <div className="eyebrow">Osovina sajta</div>
-          <h2>Ne gradimo wellness predstavu, nego mapu svakodnevnih odluka.</h2>
+          <h2>Balans se ne gradi sloganom, nego malim ponovljivim tačkama.</h2>
         </div>
-        <p>DaniniLans povezuje vodu, prostor, kuhinju, stare navike, pametne uređaje i AI tako da korisnik razume granice: šta je organizacija dana, šta je lično iskustvo, a šta zahteva stručno mišljenje.</p>
+        <p>DaniniLans ne glumi medicinski autoritet i ne prodaje čudesnu rutinu. Voda, pauza, prostor, kuhinja i AI beleška ovde služe kao okvir za jasnije pitanje: šta mogu da uredim danas, bez pritiska i bez preterivanja?</p>
       </section>
 
       <section className="section container">
-        <div className="sectionHead"><div className="eyebrow">Dnevni ritam</div><h2>Tri mesta na kojima se vidi da li sistem radi.</h2></div>
-        <div className="grid three">{rhythm.map(([num,title,text])=><article className="card numberCard" key={title}><span>{num}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+        <div className="sectionHead"><div className="eyebrow">Dnevni ritam</div><h2>Tri mesta na kojima se vidi da li navika ima smisla.</h2></div>
+        <div className="grid three">{dayFlow.map(([title,text])=><article className="card numberCard" key={title}><h3>{title}</h3><p>{text}</p></article>)}</div>
       </section>
 
       <section className="section container splitBand">
         <div>
-          <div className="eyebrow">DaniniHub metoda u svakodnevici</div>
-          <h2>Pitaj. Proveri granice. Odluči.</h2>
-          <p>AI ovde nije ukras i nije autoritet. On pomaže da se pitanje izoštri, beleška skrati i sledeći korak učini vidljivim. Granica je obavezna: kada tema dodiruje zdravlje, terapiju, pravo ili novac, odluka se ne prepušta algoritmu.</p>
-          <div className="ctaRow"><Link className="btn secondary" href="/vodici/ai-u-svakodnevici">AI u svakodnevici</Link><Link className="btn secondary" href="/ai-disclosure">AI Disclosure</Link></div>
+          <div className="eyebrow">Uloga metode i AI</div>
+          <h2>Pitaj AI — AI pita tebe.</h2>
+          <p>DaniniHub metoda u DaniniLans-u ne služi da AI odlučuje umesto čoveka. Služi da pitanje bude bolje postavljeno: šta želiš da promeniš, šta ne sme da se tvrdi, šta treba proveriti i koji korak je dovoljno mali da ostane realan.</p>
+          <div className="ctaRow"><Link className="btn secondary" href="/metoda">Kako metoda radi</Link><Link className="btn secondary" href="/ai-disclosure">AI Disclosure</Link></div>
         </div>
-        <div className="methodSteps"><div><strong>Pitaj</strong><p>Šta mi danas stvarno treba?</p></div><div><strong>Proveri</strong><p>Gde su granice i rizik?</p></div><div><strong>Odluči</strong><p>Koji mali korak ima smisla?</p></div></div>
+        <div className="methodSteps"><div><strong>Pitaj</strong><p>Šta danas traži red?</p></div><div><strong>Proveri</strong><p>Gde prestaje edukacija, a počinje stručni savet?</p></div><div><strong>Odluči</strong><p>Koji mali korak ostaje tvoj?</p></div></div>
       </section>
 
       <section className="section container">
-        <div className="sectionHead"><div className="eyebrow">Biblioteka</div><h2>Vodiči koji grade indeksiranje i smisao sajta.</h2></div>
-        <div className="grid four">{library.map(([title,text,href])=><Link className="card" key={title} href={href}><h3>{title}</h3><p>{text}</p><span className="smallCaps">Otvori</span></Link>)}</div>
+        <div className="sectionHead"><div className="eyebrow">Biblioteka</div><h2>Relevantni ulazi za vodu, rutine, AI i granice sadržaja.</h2></div>
+        <div className="grid four">{guideLinks.map(([title,text,href])=><Link className="card" key={title} href={href}><h3>{title}</h3><p>{text}</p><span className="smallCaps">Otvori</span></Link>)}</div>
       </section>
 
-      <section className="section container"><div className="card disclaimer"><h3>Granica koja čuva poverenje</h3><p>DaniniLans govori o vodi, UMH, Welan kontekstu, filterima, kuhinjskim aparatima, prostoru, tehnologiji i AI kao o delovima organizacije svakodnevice. Ne predstavlja ih kao terapiju, dijagnozu ili garanciju zdravstvenog rezultata.</p><Link className="btn secondary" href="/disclaimer">Pročitaj granice sadržaja</Link></div></section>
+      <section className="section container"><div className="card disclaimer"><h3>Nemedicinski okvir</h3><p>DaniniLans govori o vodi, ritmu, navikama, kuhinji, tehnologiji i AI kao o delovima organizacije svakodnevice. Ne predstavlja ih kao terapiju, dijagnozu ili garanciju zdravstvenog rezultata.</p><Link className="btn secondary" href="/disclaimer">Pročitaj disclaimer</Link></div></section>
     </div>
   );
 }
