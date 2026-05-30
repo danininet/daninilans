@@ -21,6 +21,7 @@ export default function Header() {
         </Link>
         <nav className="links" aria-label="Glavna navigacija">
           {links.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}
+          <span className="langSwitch" aria-label="Jezici"><Link href="/">SR</Link><Link href="/de">DE</Link><Link href="/en">EN</Link></span>
         </nav>
       </div>
     </header>
