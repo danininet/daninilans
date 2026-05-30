@@ -13,6 +13,13 @@ const guideLinks = [
   ["Disclaimer", "Granice sadržaja: edukativno, nemedicinski i bez obećanja zdravstvenih rezultata.", "/disclaimer"],
 ];
 
+const contentTracks = [
+  ["Osnovni vodiči", "voda, ritam, neutralne rutine i granice sadržaja", "/vodici"],
+  ["Recepti i kuhinja", "čajevi, bokali, priprema i kuhinjski reset bez terapijskih tvrdnji", "/recepti"],
+  ["Stara znanja", "porodične navike i kulturno iskustvo kao trag reda, ne dokaz lečenja", "/stara-znanja"],
+  ["Knjiga utisaka", "moderirani zapisi o svakodnevici, bez tvrdnji o zdravstvenom ishodu", "/recenzije"],
+];
+
 export default function HomePage() {
   return (
     <div>
@@ -57,6 +64,11 @@ export default function HomePage() {
           <div className="ctaRow"><Link className="btn secondary" href="/metoda">Kako metoda radi</Link><Link className="btn secondary" href="/ai-disclosure">AI Disclosure</Link></div>
         </div>
         <div className="methodSteps"><div><strong>Pitaj</strong><p>Šta danas traži red?</p></div><div><strong>Proveri</strong><p>Gde prestaje edukacija, a počinje stručni savet?</p></div><div><strong>Odluči</strong><p>Koji mali korak ostaje tvoj?</p></div></div>
+      </section>
+
+      <section className="section container">
+        <div className="sectionHead"><div className="eyebrow">Sadržajni pravci</div><h2>Članci, recepti i utisci nisu ukras. Oni grade arhivu svakodnevice.</h2></div>
+        <div className="grid four">{contentTracks.map(([title,text,href])=><Link className="card" key={title} href={href}><h3>{title}</h3><p>{text}</p><span className="smallCaps">Otvori pravac</span></Link>)}</div>
       </section>
 
       <section className="section container">
