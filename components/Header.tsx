@@ -1,13 +1,11 @@
 import Link from "next/link";
 
 const links = [
-  ["Vodiči", "/vodici"],
-  ["Metoda", "/metoda"],
-  ["Voda", "/voda-i-ritam"],
+  ["Voda i ritam", "/voda-i-ritam"],
   ["Rutine", "/rutine"],
-  ["Recepti", "/recepti"],
-  ["Stara znanja", "/stara-znanja"],
-  ["Utisci", "/recenzije"],
+  ["Metoda", "/metoda"],
+  ["Vodiči", "/vodici"],
+  ["Kontakt", "/kontakt"],
 ];
 
 export default function Header() {
@@ -15,10 +13,10 @@ export default function Header() {
     <header className="header">
       <div className="container nav">
         <Link className="brand" href="/" aria-label="DaniniLans početna">
-          <span className="logoMark" aria-hidden="true" />
+          <span className="logoMark" aria-hidden="true"><span>DL</span></span>
           <span>
             <span className="brandTitle">DaniniLans</span>
-            <span className="brandSub">voda · prostor · tehnologija · odluka</span>
+            <span className="brandSub">rutina · balans · voda · navike</span>
           </span>
         </Link>
         <nav className="links" aria-label="Glavna navigacija">
