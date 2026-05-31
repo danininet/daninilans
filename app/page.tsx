@@ -7,6 +7,14 @@ const priorities = [
   ["🤖", "Metoda", "Pitaj AI — AI pita tebe: dijalog, granice, provera i odluka koja ostaje ljudska.", "/metoda"],
 ];
 
+const pillars = [
+  ["💧", "Voda", "Ne kao čudo, nego kao najjednostavniji vidljivi oslonac dana: čaša, bokal, čaj, filter, pauza i kuhinja.", "/voda-i-ritam"],
+  ["🌿", "Ritam", "Dan ne mora biti savršen. Treba da ima nekoliko tačaka koje se mogu ponoviti bez pritiska.", "/rutine"],
+  ["🍵", "Kuhinja", "Mesto gde se zdravi stil života vidi najbrže: voda, obrok, priprema, uređaji i red za sutra.", "/vodici/kuhinja-kao-centar-rutine"],
+  ["📜", "Tradicija", "Balkan i porodične navike kao kulturno iskustvo, ne kao medicinski dokaz ili mit bez granice.", "/stara-znanja"],
+  ["🤖", "AI dijalog", "AI ne komanduje životom. AI pita bolje pitanje, a odluka ostaje ljudska i proverljiva.", "/vodici/ai-u-svakodnevici"],
+];
+
 const contentTracks = [
   ["🍵", "Recepti i kuhinja", "čajevi, sezonski bokali, kuhinjski reset i praktična priprema dana", "/recepti"],
   ["📜", "Stara znanja", "porodične navike, Balkan iskustvo i kulturni trag reda bez terapijskih tvrdnji", "/stara-znanja"],
@@ -50,6 +58,11 @@ export default function HomePage() {
           <h2>DaniniLans nije još jedan wellness blog. To je mapa zdravog stila života bez lažnih tvrdnji.</h2>
         </div>
         <p>Fokus je na sadržaju koji može da traje: voda, rutina, recepti, kuhinja, stara znanja, tehnologija i AI metoda. Svaka tema mora imati granicu, kategoriju i prirodno linkovanje.</p>
+      </section>
+
+      <section className="section container pillarSection">
+        <div className="sectionHead"><div className="eyebrow">DaniniLans stubovi</div><h2>Pet stubova koji nas odvajaju od generičkog wellness sadržaja.</h2></div>
+        <div className="pillarList">{pillars.map(([icon,title,text,href])=><Link className="pillarItem" key={title} href={href}><span className="pillarIcon">{icon}</span><span><strong>{title}</strong><p>{text}</p></span></Link>)}</div>
       </section>
 
       <section className="section container spaciousSection">
