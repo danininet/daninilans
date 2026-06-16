@@ -32,17 +32,12 @@ export const metadata: Metadata = {
     apple: "/apple-icon.svg",
   },
   alternates: {
-    canonical: "/sr",
-    languages: {
-      "sr": "/sr",
-      "de": "/de",
-      "en": "/en",
-    },
+    canonical: "/",
   },
   openGraph: {
     title: "DaniniLans | Zdrav stil života, voda, rutina i AI metoda",
     description: "Voda, ritam, kuhinja, stara znanja i AI dijalog — edukativno, odgovorno i nemedicinski.",
-    url: "https://daninilans.daninihub.com/sr",
+    url: "https://daninilans.daninihub.com",
     siteName: "DaniniLans",
     type: "website",
     images: [{ url: "/og-image.svg", width: 1200, height: 630, alt: "DaniniLans" }],
