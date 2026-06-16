@@ -15,6 +15,12 @@ const pillars = [
   ["🤖", "AI dijalog", "AI ne komanduje životom. AI pita bolje pitanje, a odluka ostaje ljudska i proverljiva.", "/vodici/ai-u-svakodnevici"],
 ];
 
+const productEntries = [
+  ["💧", "PDF o vodi / Wasser eBook", "Edukativni vodič o vodi, ritmu dana, kuhinji i odgovornom izboru navika. Prvo se proverava i čisti, zatim ide kao DaniniLans proizvod.", "/voda-i-ritam"],
+  ["🤖", "AI Wassercheck", "Pitaj AI — AI pita tebe za svakodnevnu proveru navika vezanih za vodu, prostor, kuhinju i ritam, bez medicinskih obećanja.", "/metoda"],
+  ["🌿", "DaniniLans vodiči", "Manji edukativni proizvodi, checkliste i članci koji povezuju vodu, ritam, kuhinju, stare navike i odgovornu tehnologiju.", "/vodici"],
+];
+
 const contentTracks = [
   ["🍵", "Recepti i kuhinja", "čajevi, sezonski bokali, kuhinjski reset i praktična priprema dana", "/recepti"],
   ["📜", "Stara znanja", "porodične navike, Balkan iskustvo i kulturni trag reda bez terapijskih tvrdnji", "/stara-znanja"],
@@ -63,6 +69,11 @@ export default function HomePage() {
       <section className="section container pillarSection">
         <div className="sectionHead"><div className="eyebrow">DaniniLans stubovi</div><h2>Pet stubova koji nas odvajaju od generičkog wellness sadržaja.</h2></div>
         <div className="pillarList">{pillars.map(([icon,title,text,href])=><Link className="pillarItem" key={title} href={href}><span className="pillarIcon">{icon}</span><span><strong>{title}</strong><p>{text}</p></span></Link>)}</div>
+      </section>
+
+      <section className="section container spaciousSection">
+        <div className="sectionHead"><div className="eyebrow">DaniniLans proizvodi</div><h2>Proizvodi ulaze tek kada imaju granicu, namenu i čist edukativni okvir.</h2></div>
+        <div className="grid three iconGrid">{productEntries.map(([icon,title,text,href])=><Link className="card iconCard" key={title} href={href}><span className="iconBubble">{icon}</span><h3>{title}</h3><p>{text}</p><span className="smallCaps">Pogledaj pravac</span></Link>)}</div>
       </section>
 
       <section className="section container spaciousSection">
