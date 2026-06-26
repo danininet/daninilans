@@ -16,12 +16,12 @@ const contentLinks = [
 ];
 
 const legalLinks = [
-  ["Disclaimer", "/disclaimer"],
-  ["AI Disclosure", "/ai-disclosure"],
-  ["Affiliate", "/affiliate-disclosure"],
-  ["Cookie", "/cookie-policy"],
-  ["Terms", "/terms"],
-  ["Datenschutz", "/datenschutz"],
+  ["Granice sadržaja", "/disclaimer"],
+  ["AI transparentnost", "/ai-disclosure"],
+  ["Affiliate transparentnost", "/affiliate-disclosure"],
+  ["Politika kolačića", "/cookie-policy"],
+  ["Uslovi korišćenja", "/terms"],
+  ["Zaštita podataka", "/datenschutz"],
   ["Impressum", "/impressum"],
 ];
 
