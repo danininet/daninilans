@@ -80,6 +80,8 @@ export default function HomePage() {
         <div className="methodSteps"><div><strong>Pitaj</strong><p>Šta danas traži red?</p></div><div><strong>Proveri</strong><p>Gde prestaje edukacija, a počinje stručni savet?</p></div><div><strong>Odluči</strong><p>Koji mali korak ostaje tvoj?</p></div></div>
       </section>
 
+      <section className="section container"><div className="card disclaimer"><h3>Partneri za vodu, kuhinju i zdrav stil života</h3><p>DaniniLans prima samo proizvode i saradnje koje se mogu predstaviti odgovorno, bez medicinskih obećanja i bez agresivne prodaje.</p><a className="btn secondary" href="https://danininet.daninihub.com/sr/blog/poziv-za-saradnike-proizvode-i-partnere">Poziv za saradnike</a></div></section>
+
       <section className="section container spaciousSection">
         <div className="sectionHead"><div className="eyebrow">Sadržajni pravci</div><h2>Članci, recepti i utisci grade arhivu, a ne dekoraciju.</h2></div>
         <div className="grid four iconGrid">{contentTracks.map(([icon,title,text,href])=><Link className="card iconCard" key={title} href={href}><span className="iconBubble">{icon}</span><h3>{title}</h3><p>{text}</p><span className="smallCaps">Otvori pravac</span></Link>)}</div>
