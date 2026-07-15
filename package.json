@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && rm -rf dist && cp -r out dist",
+    "build": "rm -rf .next out dist && test ! -f middleware.ts && test ! -f proxy.ts && next build --webpack && test -d out && cp -r out dist",
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "verify:content": "node scripts/verify-content-quality.mjs",
