@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   verify:
-    name: Typecheck and build
+    name: Typecheck, build and verify
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -34,7 +34,6 @@ jobs:
         run: npm install --no-audit --no-fund
 
       - name: TypeScript check
-        id: typecheck
         shell: bash
         run: |
           set -o pipefail
@@ -49,7 +48,6 @@ jobs:
           if-no-files-found: warn
 
       - name: Production static export
-        id: build
         shell: bash
         run: |
           set -o pipefail
@@ -63,7 +61,7 @@ jobs:
           path: build.log
           if-no-files-found: warn
 
-      - name: Verify exported site
+      - name: Verify required exported routes
         run: |
           test -d out
           test -f out/index.html
@@ -71,3 +69,22 @@ jobs:
           test -f out/de/wasser-und-rhythmus/index.html
           test -f out/de/methode/index.html
           test -f out/sitemap.xml
+          test -f out/robots.txt
+
+      - name: Verify internal links and assets
+        run: npm run verify:links
+
+      - name: Scan repository for obvious exposed secrets
+        shell: bash
+        run: |
+          if grep -RInE \
+            --exclude-dir=.git \
+            --exclude-dir=node_modules \
+            --exclude-dir=out \
+            --exclude-dir=dist \
+            --exclude='*.log' \
+            '(sk-(proj-)?[A-Za-z0-9_-]{20,}|AKIA[0-9A-Z]{16}|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----)' .; then
+            echo 'Moguća tajna ili privatni ključ pronađen u repozitorijumu.'
+            exit 1
+          fi
+          echo 'Nisu pronađeni očigledni API ključevi ili privatni ključevi.'
