@@ -72,9 +72,21 @@ jobs:
           test -f out/robots.txt
 
       - name: Verify internal links and assets
-        run: npm run verify:links
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run verify:links 2>&1 | tee link-check.log
+
+      - name: Upload link-check log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-check-log
+          path: link-check.log
+          if-no-files-found: warn
 
       - name: Scan repository for obvious exposed secrets
+        if: always()
         shell: bash
         run: |
           if grep -RInE \
