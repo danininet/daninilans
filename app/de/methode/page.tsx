@@ -9,7 +9,7 @@ const canonicalPath = "/de/methode";
 export const metadata: Metadata = {
   title: "Frag KI – KI fragt dich",
   description:
-    "Die DaniniLans-Methode für verantwortungsvolle KI-Nutzung: Fragen klären, Grenzen prüfen und Entscheidungen beim Menschen lassen.",
+    "Die DaniniLans-Methode für einen verantwortungsvollen KI-Dialog: Fragen präzisieren, Annahmen prüfen und Entscheidungen beim Menschen belassen.",
   alternates: {
     canonical: canonicalPath,
     languages: {
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Frag KI – KI fragt dich | DaniniLans",
     description:
-      "Eine verantwortungsvolle KI-Methode für Alltag, Wasser, Routinen und klare menschliche Entscheidungen.",
+      "Eine nachvollziehbare Methode, mit der KI Rückfragen stellt, Grenzen sichtbar macht und menschliche Entscheidungen unterstützt.",
     url: canonicalPath,
     locale: "de_DE",
     alternateLocale: ["sr_RS"],
@@ -37,7 +37,7 @@ const schema = {
       "@id": `${baseUrl}${canonicalPath}#article`,
       headline: "Frag KI – KI fragt dich",
       description:
-        "Die DaniniLans-Methode für verantwortungsvolle KI-Nutzung im Alltag.",
+        "Die DaniniLans-Methode für einen verantwortungsvollen und überprüfbaren KI-Dialog im Alltag.",
       inLanguage: "de-DE",
       datePublished: "2026-07-15",
       dateModified: "2026-07-15",
@@ -56,10 +56,22 @@ const schema = {
 };
 
 const steps = [
-  ["Fragen", "Der Prozess beginnt nicht mit einem Befehl an die KI, sondern mit einer klaren Frage: Was braucht im Alltag mehr Ordnung, welche Gewohnheit bricht immer wieder ab und wo fehlt ein realistischer nächster Schritt?"],
-  ["KI fragt zurück", "Die KI liefert keinen endgültigen Autoritätsanspruch. Sie stellt Rückfragen: Ist das eine Gesundheitsthematik, welche Annahme muss geprüft werden und was ist belegbar?"],
-  ["Grenzen prüfen", "Medizinische Versprechen, Diagnosen, Therapien, garantierte Ergebnisse und unbelegte Behauptungen werden nicht als belastbare Entscheidung ausgegeben."],
-  ["Menschlich entscheiden", "Die Entscheidung bleibt beim Menschen: ein Glas Wasser, eine Pause, eine Notiz oder ein kleiner umsetzbarer Schritt – kein perfektes System."],
+  [
+    "Ausgangsfrage klären",
+    "Der Dialog beginnt mit einem konkreten Anliegen: Was soll im Alltag verständlicher, leichter oder besser organisiert werden?",
+  ],
+  [
+    "Rückfragen zulassen",
+    "Die KI fragt nach Kontext, Unsicherheiten und Grenzen, statt aus einer unvollständigen Eingabe sofort eine endgültige Empfehlung abzuleiten.",
+  ],
+  [
+    "Aussagen prüfen",
+    "Gesundheitsbezogene, rechtliche, finanzielle oder technische Behauptungen werden von Annahmen getrennt und dort, wo es nötig ist, anhand geeigneter Quellen oder durch Fachpersonen geprüft.",
+  ],
+  [
+    "Selbst entscheiden",
+    "Am Ende steht kein automatischer Befehl, sondern ein nachvollziehbarer nächster Schritt, für den der Mensch die Verantwortung behält.",
+  ],
 ];
 
 export default function GermanMethodPage() {
@@ -67,11 +79,16 @@ export default function GermanMethodPage() {
     <article lang="de" className="container section legalText">
       <StructuredData data={schema} />
       <nav className="breadcrumbs" aria-label="Brotkrumen-Navigation">
-        <Link href="/de">Startseite</Link><span aria-hidden="true">/</span><span>Methode</span>
+        <Link href="/de">Startseite</Link>
+        <span aria-hidden="true">/</span>
+        <span>Methode</span>
       </nav>
+
       <div className="eyebrow">Methode · Deutsch</div>
       <h1>Frag KI – KI fragt dich.</h1>
-      <p className="lead">DaniniLans nutzt die DaniniHub-Methode, damit ein gesünderer Lebensstil weder zum Marketingversprechen noch zur blinden Befolgung eines Algorithmus wird. KI hilft, Fragen zu klären, übernimmt aber weder Verantwortung noch Behandlung oder Entscheidung.</p>
+      <p className="lead">
+        Die Methode verwendet KI nicht als Autorität, sondern als strukturierten Gesprächspartner. Rückfragen, überprüfbare Aussagen und klar benannte Grenzen stehen vor jeder Empfehlung.
+      </p>
 
       <EditorialTrust
         author="DaniniLans Redaktion"
@@ -91,24 +108,34 @@ export default function GermanMethodPage() {
 
       <section className="section featureBand">
         <div>
-          <div className="eyebrow">Rolle in DaniniLans</div>
-          <h2>Die Methode verbindet Wasser, Routinen, Küche, bewährte Gewohnheiten und digitale Werkzeuge.</h2>
+          <div className="eyebrow">Anwendung bei DaniniLans</div>
+          <h2>Die Methode ordnet Fragen zu Wasser, Routinen, Küche und digitalen Werkzeugen.</h2>
         </div>
-        <p>Wasser und Tagesrhythmus bilden den Einstieg. Routinen geben Orientierung. Inhalte und Erfahrungen werden nicht als Copy-and-paste-Ratschläge behandelt, sondern als strukturierter Dialog mit klaren Grenzen.</p>
+        <p>
+          Sie trennt Beobachtung, persönliche Erfahrung, belegbare Information und fachliche Beratung. Dadurch wird sichtbar, was im Alltag selbst entschieden werden kann und wo zusätzliche Prüfung erforderlich ist.
+        </p>
       </section>
 
       <section className="card sourceCard">
-        <h2>Verantwortung und Prüfung</h2>
-        <p>Bei Gesundheit, Erkrankungen, Medikamenten, Schwangerschaft, therapeutischer Ernährung sowie rechtlichen oder finanziellen Entscheidungen ist eine qualifizierte fachliche Prüfung erforderlich.</p>
+        <h2>Verantwortung und fachliche Prüfung</h2>
+        <p>
+          Bei Erkrankungen, Medikamenten, Schwangerschaft, therapeutischer Ernährung sowie rechtlichen oder finanziellen Entscheidungen reicht ein KI-Dialog nicht aus. In diesen Fällen ist eine qualifizierte individuelle Beratung erforderlich.
+        </p>
         <div className="ctaRow">
-          <Link className="btn secondary" href="/de/wasser-und-rhythmus">Wasser und Rhythmus</Link>
-          <Link className="btn secondary" href="/metoda" hrefLang="sr">Srpska verzija</Link>
+          <Link className="btn secondary" href="/de/wasser-und-rhythmus">
+            Wasser und Tagesrhythmus
+          </Link>
+          <Link className="btn secondary" href="/metoda" hrefLang="sr">
+            Srpska verzija
+          </Link>
         </div>
       </section>
 
       <section className="card disclaimer">
-        <h2>Wichtiger Hinweis</h2>
-        <p>Die Methode dient der allgemeinen Information und Strukturierung. Sie ersetzt keine medizinische, rechtliche, finanzielle oder andere individuelle Fachberatung.</p>
+        <h2>Hinweis zur Nutzung</h2>
+        <p>
+          Die Methode unterstützt die Strukturierung von Fragen. Sie ersetzt keine medizinische, rechtliche, finanzielle oder andere individuelle Fachberatung.
+        </p>
       </section>
     </article>
   );
