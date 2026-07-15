@@ -28,10 +28,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/de/methode",
   ];
 
-  return routes.map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date("2026-07-15"),
-    changeFrequency: route === "" || route === "/de" ? "weekly" : "monthly",
-    priority: route === "" || route === "/de" ? 1 : 0.7,
-  }));
+  return routes.map((route): MetadataRoute.Sitemap[number] => {
+    const isHome = route === "" || route === "/de";
+
+    return {
+      url: `${baseUrl}${route}`,
+      lastModified: new Date("2026-07-15"),
+      changeFrequency: isHome ? "weekly" : "monthly",
+      priority: isHome ? 1 : 0.7,
+    };
+  });
 }
