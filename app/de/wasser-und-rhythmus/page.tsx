@@ -4,17 +4,17 @@ import EditorialTrust from "../../../components/EditorialTrust";
 import StructuredData from "../../../components/StructuredData";
 
 const baseUrl = "https://daninilans.daninihub.com";
-const canonicalPath = "/de/wasser-und-rhythmmus";
+const canonicalPath = "/de/wasser-und-rhythmus";
 
 export const metadata: Metadata = {
   title: "Wasser und Tagesrhythmus",
   description:
     "Ein sachlicher DaniniLans-Leitfaden darüber, wie Wasser in bestehende Tagesabläufe eingebunden werden kann – ohne starre Vorgaben oder medizinische Versprechen.",
   alternates: {
-    canonical: "/de/wasser-und-rhythmus",
+    canonical: canonicalPath,
     languages: {
       "sr-RS": "/voda-i-ritam",
-      "de-DE": "/de/wasser-und-rhythmus",
+      "de-DE": canonicalPath,
       "x-default": "/voda-i-ritam",
     },
   },
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "Wasser und Tagesrhythmus | DaniniLans",
     description:
       "Wasser an Morgen, Arbeit, Pausen, Mahlzeiten und Abend anbinden – ohne Perfektionsdruck.",
-    url: "/de/wasser-und-rhythmus",
+    url: canonicalPath,
     locale: "de_DE",
     alternateLocale: ["sr_RS"],
     type: "article",
@@ -34,7 +34,7 @@ const schema = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": `${baseUrl}/de/wasser-und-rhythmus#article`,
+      "@id": `${baseUrl}${canonicalPath}#article`,
       headline: "Wasser und Tagesrhythmus",
       description:
         "Ein DaniniLans-Leitfaden über Wasser als sichtbaren Bestandteil eines realistischen Tagesablaufs.",
@@ -43,7 +43,7 @@ const schema = {
       dateModified: "2026-07-15",
       author: { "@type": "Organization", name: "DaniniLans Redaktion" },
       publisher: { "@id": `${baseUrl}/#organization` },
-      mainEntityOfPage: `${baseUrl}/de/wasser-und-rhythmus`,
+      mainEntityOfPage: `${baseUrl}${canonicalPath}`,
     },
     {
       "@type": "BreadcrumbList",
@@ -53,7 +53,7 @@ const schema = {
           "@type": "ListItem",
           position: 2,
           name: "Wasser und Tagesrhythmus",
-          item: `${baseUrl}/de/wasser-und-rhythmus`,
+          item: `${baseUrl}${canonicalPath}`,
         },
       ],
     },
