@@ -1,0 +1,111 @@
+name: Quality
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main, audit/danini-system-alignment-2026-07]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Content, typecheck, build and verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: package.json
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Reject placeholders and demo copy
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run verify:content 2>&1 | tee content-quality.log
+
+      - name: Upload content-quality log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: content-quality-log
+          path: content-quality.log
+          if-no-files-found: warn
+
+      - name: TypeScript check
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run typecheck 2>&1 | tee typecheck.log
+
+      - name: Upload typecheck log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: typecheck-log
+          path: typecheck.log
+          if-no-files-found: warn
+
+      - name: Production static export
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run build 2>&1 | tee build.log
+
+      - name: Upload build log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: build.log
+          if-no-files-found: warn
+
+      - name: Verify required exported routes
+        run: |
+          test -d out
+          test -f out/index.html
+          test -f out/de/index.html
+          test -f out/de/wasser-und-rhythmus/index.html
+          test -f out/de/methode/index.html
+          test -f out/sitemap.xml
+          test -f out/robots.txt
+
+      - name: Verify internal links and assets
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run verify:links 2>&1 | tee link-check.log
+
+      - name: Upload link-check log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-check-log
+          path: link-check.log
+          if-no-files-found: warn
+
+      - name: Scan tracked files for obvious exposed secrets
+        if: always()
+        shell: bash
+        run: |
+          pattern='(sk-(proj-)?[A-Za-z0-9_-]{20,}|AKIA[0-9A-Z]{16}|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----)'
+          if git grep -nE "$pattern" -- . ':(exclude).github/workflows/quality.yml'; then
+            echo 'Moguća tajna ili privatni ključ pronađen u verzionisanim fajlovima.'
+            exit 1
+          fi
+          echo 'Nisu pronađeni očigledni API ključevi ili privatni ključevi u verzionisanim fajlovima.'

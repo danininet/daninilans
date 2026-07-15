@@ -1,19 +1,22 @@
 import type { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
+const baseUrl = "https://daninilans.daninihub.com";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://daninilans.daninihub.com";
-  return [
+  const routes = [
     "",
+    "/vodici",
     "/voda-i-ritam",
     "/rutine",
-    "/vodici",
+    "/metoda",
     "/vodici/ai-u-svakodnevici",
     "/vodici/voda-tehnologija-i-ai",
     "/vodici/stanovanje-i-kvalitet-svakodnevice",
     "/recepti",
     "/stara-znanja",
     "/recenzije",
-    "/metoda",
     "/kontakt",
     "/disclaimer",
     "/ai-disclosure",
@@ -21,6 +24,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/cookie-policy",
     "/terms",
     "/datenschutz",
-    "/impressum"
-  ].map((url) => ({ url: `${base}${url}`, lastModified: new Date() }));
+    "/impressum",
+    "/de",
+    "/de/wasser-und-rhythmus",
+    "/de/methode",
+  ];
+
+  return routes.map((route): MetadataRoute.Sitemap[number] => {
+    const isHome = route === "" || route === "/de";
+
+    return {
+      url: `${baseUrl}${route}`,
+      lastModified: new Date("2026-07-15"),
+      changeFrequency: isHome ? "weekly" : "monthly",
+      priority: isHome ? 1 : 0.7,
+    };
+  });
 }

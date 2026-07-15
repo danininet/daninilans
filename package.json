@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build && rm -rf dist && cp -r out dist",
     "start": "next start",
-    "lint": "next lint"
+    "typecheck": "tsc --noEmit",
+    "verify:content": "node scripts/verify-content-quality.mjs",
+    "verify:links": "node scripts/verify-static-links.mjs",
+    "check": "npm run verify:content && npm run typecheck && npm run build && npm run verify:links"
   },
   "dependencies": {
     "@types/node": "^24.10.1",
