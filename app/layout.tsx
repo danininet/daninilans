@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import StructuredData from "../components/StructuredData";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://daninilans.daninihub.com"),
@@ -39,6 +40,7 @@ export const metadata: Metadata = {
     description: "Voda, ritam, kuhinja, stara znanja i AI dijalog — edukativno, odgovorno i nemedicinski.",
     url: "https://daninilans.daninihub.com",
     siteName: "DaniniLans",
+    locale: "sr_RS",
     type: "website",
     images: [{ url: "/og-image.svg", width: 1200, height: 630, alt: "DaniniLans" }],
   },
@@ -54,12 +56,40 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://daninilans.daninihub.com/#organization",
+      name: "DaniniLans",
+      url: "https://daninilans.daninihub.com",
+      description: "Edukativna DaniniHub vertikala o vodi, zdravom stilu života, dnevnom ritmu, kuhinji i odgovornoj upotrebi AI metode.",
+      parentOrganization: {
+        "@type": "Organization",
+        name: "DaniniHub",
+        url: "https://daninihub.com",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://daninilans.daninihub.com/#website",
+      url: "https://daninilans.daninihub.com",
+      name: "DaniniLans",
+      inLanguage: "sr",
+      publisher: { "@id": "https://daninilans.daninihub.com/#organization" },
+    },
+  ],
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="sr">
       <body>
+        <a className="skipLink" href="#glavni-sadrzaj">Preskoči na glavni sadržaj</a>
+        <StructuredData data={organizationSchema} />
         <Header />
-        <main>{children}</main>
+        <main id="glavni-sadrzaj">{children}</main>
         <Footer />
       </body>
     </html>
