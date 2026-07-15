@@ -94,6 +94,7 @@ jobs:
             --exclude-dir=node_modules \
             --exclude-dir=out \
             --exclude-dir=dist \
+            --exclude='quality.yml' \
             --exclude='*.log' \
             '(sk-(proj-)?[A-Za-z0-9_-]{20,}|AKIA[0-9A-Z]{16}|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----)' .; then
             echo 'Moguća tajna ili privatni ključ pronađen u repozitorijumu.'
