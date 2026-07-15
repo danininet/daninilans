@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build && rm -rf dist && cp -r out dist",
     "start": "next start",
-    "lint": "next lint"
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm run build"
   },
   "dependencies": {
     "@types/node": "^24.10.1",
