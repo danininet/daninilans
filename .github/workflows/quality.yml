@@ -85,19 +85,13 @@ jobs:
           path: link-check.log
           if-no-files-found: warn
 
-      - name: Scan repository for obvious exposed secrets
+      - name: Scan tracked files for obvious exposed secrets
         if: always()
         shell: bash
         run: |
-          if grep -RInE \
-            --exclude-dir=.git \
-            --exclude-dir=node_modules \
-            --exclude-dir=out \
-            --exclude-dir=dist \
-            --exclude='quality.yml' \
-            --exclude='*.log' \
-            '(sk-(proj-)?[A-Za-z0-9_-]{20,}|AKIA[0-9A-Z]{16}|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----)' .; then
-            echo 'Moguća tajna ili privatni ključ pronađen u repozitorijumu.'
+          pattern='(sk-(proj-)?[A-Za-z0-9_-]{20,}|AKIA[0-9A-Z]{16}|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----)'
+          if git grep -nE "$pattern" -- . ':(exclude).github/workflows/quality.yml'; then
+            echo 'Moguća tajna ili privatni ključ pronađen u verzionisanim fajlovima.'
             exit 1
           fi
-          echo 'Nisu pronađeni očigledni API ključevi ili privatni ključevi.'
+          echo 'Nisu pronađeni očigledni API ključevi ili privatni ključevi u verzionisanim fajlovima.'
