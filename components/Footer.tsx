@@ -38,9 +38,9 @@ export default function Footer() {
         <div>
           <strong>DaniniLans</strong>
           <p>Voda, dnevni ritam, kuhinja i navike kroz edukativan, nemedicinski okvir. AI i DaniniHub metoda služe za jasnije pitanje i odgovorniju odluku, ne za obećanja rezultata.</p>
-          <p className="ecosystemNote">DaniniLans je posebna health/lifestyle vertikala Danini sistema.</p>
+          <p><small>DaniniLans je posebna health/lifestyle vertikala Danini sistema.</small></p>
         </div>
-        <div className="footerColumns footerColumnsFour">
+        <div className="footerColumns" style={{ gridTemplateColumns: "repeat(2, minmax(0, 1fr))" }}>
           <div><span className="smallCaps">Osnova</span>{mainLinks.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div>
           <div><span className="smallCaps">Sadržaj</span>{contentLinks.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div>
           <div><span className="smallCaps">Danini sistem</span>{systemLinks.map(([label, href]) => <a key={href} href={href} rel="noreferrer">{label}</a>)}</div>
