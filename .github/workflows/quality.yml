@@ -1,0 +1,49 @@
+name: Quality
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main, audit/danini-system-alignment-2026-07]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Typecheck and build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: package.json
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: TypeScript check
+        run: npm run typecheck
+
+      - name: Production static export
+        run: npm run build
+
+      - name: Verify exported site
+        run: |
+          test -d out
+          test -f out/index.html
+          test -f out/de/index.html
+          test -f out/de/wasser-und-rhythmus/index.html
+          test -f out/de/methode/index.html
+          test -f out/sitemap.xml
