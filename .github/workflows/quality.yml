@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   verify:
-    name: Typecheck, build and verify
+    name: Content, typecheck, build and verify
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -32,6 +32,20 @@ jobs:
 
       - name: Install dependencies
         run: npm install --no-audit --no-fund
+
+      - name: Reject placeholders and demo copy
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run verify:content 2>&1 | tee content-quality.log
+
+      - name: Upload content-quality log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: content-quality-log
+          path: content-quality.log
+          if-no-files-found: warn
 
       - name: TypeScript check
         shell: bash
