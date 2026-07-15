@@ -1,8 +1,25 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Voda i ritam | DaniniLans",
   description: "Edukativni, nemedicinski DaniniLans vodič kroz vodu kao deo dnevnog ritma, neutralnih navika i odgovorne AI organizacije.",
+  alternates: {
+    canonical: "/voda-i-ritam",
+    languages: {
+      "sr-RS": "/voda-i-ritam",
+      "de-DE": "/de/wasser-und-rhythmus",
+      "x-default": "/voda-i-ritam",
+    },
+  },
+  openGraph: {
+    title: "Voda i ritam dana | DaniniLans",
+    description: "Voda kao jednostavna, vidljiva tačka realnog dnevnog ritma — bez medicinskih obećanja.",
+    url: "/voda-i-ritam",
+    locale: "sr_RS",
+    alternateLocale: ["de_DE"],
+    type: "article",
+  },
 };
 
 const rhythm = [
@@ -18,17 +35,10 @@ export default function Page() {
       <div className="eyebrow">DaniniLans vodič</div>
       <h1>Voda i ritam dana</h1>
       <p className="lead">Voda ovde nije lek, dokaz discipline niti simbol savršenog života. U DaniniLans-u ona je najjednostavnija vidljiva tačka oko koje se može posmatrati dan: jutro, rad, pauza, kuhinja, veče i priprema za sutra.</p>
-
-      <section className="section featureBand">
-        <div><div className="eyebrow">Osnovni princip</div><h2>Ritam se ne uvodi silom. Ritam se vidi kroz ponavljanje.</h2></div>
-        <p>DaniniLans ne traži ekstremne režime. Ako se jedna mala tačka ponavlja dovoljno mirno — voda na stolu, kratka beleška, pauza bez ekrana — dan postaje čitljiviji bez velikih obećanja.</p>
-      </section>
-
-      <div className="grid four">{rhythm.map(([title,text])=><article className="card" key={title}><h3>{title}</h3><p>{text}</p></article>)}</div>
-
-      <section className="card section"><h3>Kako koristiti ovaj vodič</h3><p>Ne koristi ga kao pravilo koje moraš ispuniti. Koristi ga kao ogledalo: gde tokom dana voda već postoji, gde se zaboravlja, gde pauza ima smisla, a gde je potreban stručan savet umesto internet teksta.</p><div className="ctaRow"><Link className="btn secondary" href="/rutine">Poveži sa rutinama</Link><Link className="btn secondary" href="/vodici/ai-u-svakodnevici">AI u svakodnevici</Link></div></section>
-
-      <div className="card disclaimer section"><h3>Nemedicinski okvir</h3><p>Tekst je edukativan. Ne daje dijagnozu, terapiju, plan ishrane, preporuku za bolest niti garanciju zdravstvenog rezultata. Kod zdravstvenih pitanja odluka ide uz stručno lice.</p><Link className="btn secondary" href="/disclaimer">Disclaimer</Link></div>
+      <section className="section featureBand"><div><div className="eyebrow">Osnovni princip</div><h2>Ritam se ne uvodi silom. Ritam se vidi kroz ponavljanje.</h2></div><p>DaniniLans ne traži ekstremne režime. Ako se jedna mala tačka ponavlja dovoljno mirno — voda na stolu, kratka beleška, pauza bez ekrana — dan postaje čitljiviji bez velikih obećanja.</p></section>
+      <div className="grid four">{rhythm.map(([title, text]) => <article className="card" key={title}><h2>{title}</h2><p>{text}</p></article>)}</div>
+      <section className="card section"><h2>Kako koristiti ovaj vodič</h2><p>Ne koristi ga kao pravilo koje moraš ispuniti. Koristi ga kao ogledalo: gde tokom dana voda već postoji, gde se zaboravlja, gde pauza ima smisla, a gde je potreban stručan savet umesto internet teksta.</p><div className="ctaRow"><Link className="btn secondary" href="/rutine">Poveži sa rutinama</Link><Link className="btn secondary" href="/de/wasser-und-rhythmus" hrefLang="de">Deutsche Version</Link><Link className="btn secondary" href="/vodici/ai-u-svakodnevici">AI u svakodnevici</Link></div></section>
+      <div className="card disclaimer section"><h2>Nemedicinski okvir</h2><p>Tekst je edukativan. Ne daje dijagnozu, terapiju, plan ishrane, preporuku za bolest niti garanciju zdravstvenog rezultata. Kod zdravstvenih pitanja odluka ide uz stručno lice.</p><Link className="btn secondary" href="/disclaimer">Disclaimer</Link></div>
     </div>
   );
 }
