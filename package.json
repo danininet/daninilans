@@ -7,7 +7,8 @@
     "build": "next build && rm -rf dist && cp -r out dist",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "check": "npm run typecheck && npm run build"
+    "verify:links": "node scripts/verify-static-links.mjs",
+    "check": "npm run typecheck && npm run build && npm run verify:links"
   },
   "dependencies": {
     "@types/node": "^24.10.1",
