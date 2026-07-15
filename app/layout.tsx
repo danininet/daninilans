@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import StructuredData from "../components/StructuredData";
+import DocumentLanguage from "../components/DocumentLanguage";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://daninilans.daninihub.com"),
@@ -34,6 +35,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "/",
+    languages: {
+      "sr-RS": "/",
+      "de-DE": "/de",
+      "x-default": "/",
+    },
   },
   openGraph: {
     title: "DaniniLans | Zdrav stil života, voda, rutina i AI metoda",
@@ -41,6 +47,7 @@ export const metadata: Metadata = {
     url: "https://daninilans.daninihub.com",
     siteName: "DaniniLans",
     locale: "sr_RS",
+    alternateLocale: ["de_DE"],
     type: "website",
     images: [{ url: "/og-image.svg", width: 1200, height: 630, alt: "DaniniLans" }],
   },
@@ -76,7 +83,7 @@ const organizationSchema = {
       "@id": "https://daninilans.daninihub.com/#website",
       url: "https://daninilans.daninihub.com",
       name: "DaniniLans",
-      inLanguage: "sr",
+      inLanguage: ["sr-RS", "de-DE"],
       publisher: { "@id": "https://daninilans.daninihub.com/#organization" },
     },
   ],
@@ -84,8 +91,9 @@ const organizationSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="sr">
+    <html lang="sr" suppressHydrationWarning>
       <body>
+        <DocumentLanguage />
         <a className="skipLink" href="#glavni-sadrzaj">Preskoči na glavni sadržaj</a>
         <StructuredData data={organizationSchema} />
         <Header />
