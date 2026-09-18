@@ -36,9 +36,9 @@ const legalLinks = [
 ];
 
 const systemLinks = [
-  ["DaniniHub OS", "https://daninihub.com"],
-  ["DaniniNet", "https://danininet.daninihub.com"],
-  ["Partnerstva", "https://danininet.daninihub.com/sr/blog/poziv-za-saradnike-proizvode-i-partnere"],
+  ["DaniniHub Revenue OS", "https://daninihub.com/sr/"],
+  ["DaniniHub", "https://daninihub.com/sr/"],
+  ["Pokreni tržišni test", "https://daninihub.com/sr/"],
 ];
 
 export default function Footer() {
